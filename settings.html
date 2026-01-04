@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaFeed Pro - Settings</title>
+    <style>
+        :root {
+            --sidebar-bg: #2d5a43;
+            --main-bg: #f8faf9;
+            --accent-green: #2ecc71;
+            --card-white: #ffffff;
+            --border-color: #eee;
+            --text-muted: #888;
+        }
+
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--main-bg); display: flex; height: 100vh; }
+
+        /* Sidebar Styling */
+        nav { width: 260px; background: var(--sidebar-bg); color: white; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+        .nav-item { padding: 15px 20px; margin-bottom: 8px; border-radius: 12px; text-decoration: none; color: rgba(255,255,255,0.7); display: block; transition: 0.3s; }
+        .nav-item.active { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.2); }
+
+        /* Main Content */
+        main { flex: 1; padding: 30px; overflow-y: auto; }
+        .header { margin-bottom: 30px; }
+        .card { background: var(--card-white); border-radius: 15px; padding: 25px; margin-bottom: 25px; border: 1px solid var(--border-color); position: relative; }
+        
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; font-size: 0.8em; color: var(--text-muted); padding: 12px; border-bottom: 2px solid #f4f4f4; }
+        td { padding: 15px 12px; border-bottom: 1px solid #f9f9f9; font-size: 0.9em; vertical-align: middle; }
+
+        /* Buttons & Badges */
+        .btn-add { background: var(--accent-green); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; float: right; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+        .badge { padding: 4px 10px; border-radius: 6px; font-size: 0.75em; font-weight: bold; }
+        .bg-admin { background: #f3e5f5; color: #7b1fa2; }
+        .bg-manager { background: #e3f2fd; color: #1976d2; }
+        .bg-active { background: #e8f5e9; color: #2e7d32; }
+
+        /* Icon Placeholders (Simplified for CSS) */
+        .icon-btn { border: none; background: none; cursor: pointer; font-size: 1.1em; color: #999; margin-left: 10px; }
+        .icon-btn:hover { color: #333; }
+        .icon-box { width: 40px; height: 40px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 15px; color: white; }
+
+        /* Form Controls */
+        .form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; background: #fff; margin-top: 5px; }
+        .save-bar { text-align: right; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3>AquaFeed Pro</h3>
+                <small style="opacity: 0.6;">Smart Feeding System</small>
+            </div>
+            <a href="index.html" class="nav-item">Dashboard</a>
+            <a href="#" class="nav-item">Fish Tanks</a>
+            <a href="schedule.html" class="nav-item">Feeding Schedule</a>
+            <a href="#" class="nav-item">Analytics</a>
+            <a href="settings.html" class="nav-item active">Settings</a>
+        </div>
+        <div style="font-size: 0.8em; opacity: 0.8;">
+            <p><strong>Aquarium Manager</strong><br>Premium Account</p>
+        </div>
+    </nav>
+
+    <main>
+        <div class="header">
+            <h2>Settings</h2>
+            <p style="color: #666; margin-top: -10px;">Manage users, tanks, and system preferences</p>
+        </div>
+
+        <div class="card">
+            <button class="btn-add">👤 Add User</button>
+            <div style="display: flex; align-items: center;">
+                <div class="icon-box" style="background: #3b82f6;">👤</div>
+                <div>
+                    <strong>User Management</strong><br>
+                    <small style="color: #999;">Add, edit, or remove users</small>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Aquarium Manager</strong></td>
+                        <td>admin@aquafeed.com</td>
+                        <td><span class="badge bg-admin">Admin</span></td>
+                        <td><span class="badge bg-active">Active</span></td>
+                        <td>Just now</td>
+                        <td><button class="icon-btn">✏️</button><button class="icon-btn">🗑️</button></td>
+                    </tr>
+                    <tr>
+                        <td>John Smith</td>
+                        <td>john@aquafeed.com</td>
+                        <td><span class="badge bg-manager">Manager</span></td>
+                        <td><span class="badge bg-active">Active</span></td>
+                        <td>2 hours ago</td>
+                        <td><button class="icon-btn">✏️</button><button class="icon-btn">🗑️</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <button class="btn-add">🐟 Add Tank</button>
+            <div style="display: flex; align-items: center;">
+                <div class="icon-box" style="background: #10b981;">🐟</div>
+                <div>
+                    <strong>Tank Management</strong><br>
+                    <small style="color: #999;">Add, edit, or remove fish tanks</small>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tank Name</th>
+                        <th>Capacity</th>
+                        <th>Temperature</th>
+                        <th>pH Level</th>
+                        <th>Fish Count</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tropical Tank A</td>
+                        <td>200L</td>
+                        <td>26.5°C</td>
+                        <td>7.2</td>
+                        <td>24</td>
+                        <td><button class="icon-btn">✏️</button><button class="icon-btn">🗑️</button></td>
+                    </tr>
+                    <tr>
+                        <td>Koi Pond</td>
+                        <td>1000L</td>
+                        <td>18.5°C</td>
+                        <td>7.8</td>
+                        <td>8</td>
+                        <td><button class="icon-btn">✏️</button><button class="icon-btn">🗑️</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; align-items: center;">
+                <div class="icon-box" style="background: #f97316;">⚙️</div>
+                <div>
+                    <strong>System Preferences</strong><br>
+                    <small style="color: #999;">Configure system-wide settings</small>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div>
+                    <label style="font-size: 0.85em; font-weight: bold;">Default Temperature Unit</label><br>
+                    <select>
+                        <option>Celsius (°C)</option>
+                        <option>Fahrenheit (°F)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85em; font-weight: bold;">Alert Notifications</label><br>
+                    <select>
+                        <option>All Alerts</option>
+                        <option>Critical Only</option>
+                        <option>None</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85em; font-weight: bold;">Data Retention Period</label><br>
+                    <select>
+                        <option>90 Days</option>
+                        <option>180 Days</option>
+                        <option>1 Year</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85em; font-weight: bold;">Auto-Feed Backup</label><br>
+                    <select>
+                        <option>Enabled</option>
+                        <option>Disabled</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="save-bar">
+                <button style="background: var(--accent-green); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer;">Save Preferences</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

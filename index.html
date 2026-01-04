@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaFeed Pro Dashboard</title>
+    <style>
+        :root {
+            --sidebar-bg: #2d5a43;
+            --main-bg: #f8faf9;
+            --accent-green: #52c48a;
+            --card-white: #ffffff;
+            --text-dark: #333;
+            --text-muted: #666;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--main-bg);
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .logo-section { text-align: center; margin-bottom: 40px; }
+        
+        .nav-links { list-style: none; padding: 0; }
+        
+        .nav-item {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-item:hover:not(.active) { background-color: rgba(255, 255, 255, 0.05); }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Dashboard Cards */
+        .card {
+            background: var(--card-white);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid #eee;
+        }
+
+        .stat-card { border-left: 5px solid var(--accent-green); }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-warning { background: #fff9e6; border: 1px solid #ffeeba; color: #856404; }
+        .alert-success { background: #e6f9f0; border: 1px solid #b7ebcf; color: #155724; }
+
+        /* Buttons */
+        .btn-feed {
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Chart Placeholder styling */
+        .chart-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            padding-top: 20px;
+        }
+
+        .bar {
+            width: 10%;
+            background: #9d70ff;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <div>
+    <div class="logo-section" style="text-align: center; margin-bottom: 30px;">
+        <h3>AquaFeed Pro</h3>
+        <small style="opacity: 0.6; display: block; margin-top: -5px;">Smart Feeding System</small>
+    </div>
+    
+    <ul class="nav-links" style="list-style: none; padding: 0; margin: 0;">
+        <li>
+            <a href="index.html" class="nav-item active" style="text-decoration: none; color: white; display: block; padding: 15px 20px; border-radius: 12px; margin-bottom: 8px;">
+                Dashboard
+            </a>
+        </li>
+        
+        <li>
+            <a href="tanks.html" class="nav-item" style="text-decoration: none; color: rgba(255,255,255,0.7); display: block; padding: 15px 20px; border-radius: 12px; margin-bottom: 8px;">
+                Fish Tanks
+            </a>
+        </li>
+        
+        <li>
+            <a href="schedule.html" class="nav-item" style="text-decoration: none; color: rgba(255,255,255,0.7); display: block; padding: 15px 20px; border-radius: 12px; margin-bottom: 8px;">
+                Feeding Schedule
+            </a>
+        </li>
+        
+        <li>
+            <a href="analytics.html" class="nav-item" style="text-decoration: none; color: rgba(255,255,255,0.7); display: block; padding: 15px 20px; border-radius: 12px; margin-bottom: 8px;">
+                Analytics
+            </a>
+        </li>
+        
+        <li>
+            <a href="settings.html" class="nav-item" style="text-decoration: none; color: rgba(255,255,255,0.7); display: block; padding: 15px 20px; border-radius: 12px; margin-bottom: 8px;">
+                Settings
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <div class="user-profile" style="font-size: 0.8em; opacity: 0.9;">
+        <p><strong>Aquarium Manager</strong><br><small>Premium Account</small></p>
+    </div>
+</nav>
+        
+
+    <main>
+        <div class="header">
+            <div>
+                <h1>Welcome to AquaFeed Pro! 🐟</h1>
+                <p>Monitor your fish feeding and aquarium health</p>
+            </div>
+            <span style="color: green; font-size: 0.9em;">● All systems active</span>
+        </div>
+
+        <div class="card stat-card">
+            <small>Total Fish</small>
+            <h2 style="margin: 5px 0;">62</h2>
+            <small style="color: green;">↑ +3 this month</small>
+        </div>
+
+        <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <strong>Next Feeding</strong><br>
+                <small>Marine Reef Tank - 12:00 PM (in 45 minutes)</small>
+            </div>
+            <div>
+                <button style="background: none; border: 1px solid #ccc; padding: 10px 15px; border-radius: 8px; margin-right: 10px;">Skip</button>
+                <button class="btn-feed">Feed Now</button>
+            </div>
+        </div>
+
+        <h3>Recent Alerts</h3>
+        <div class="alert alert-warning">
+            ⚠️ <strong>Temperature Alert - Koi Pond:</strong> Temperature dropped to 18.5°C. Recommended: 20-24°C
+        </div>
+        <div class="alert alert-success">
+            ✅ <strong>Feeding Completed - Tropical Tank A:</strong> Automated feeding successful.
+        </div>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between;">
+                <strong>Weekly Food Consumption</strong>
+                <span style="color: #9d70ff; font-weight: bold;">1,947g Total</span>
+            </div>
+            <div class="chart-container">
+                <div class="bar" style="height: 80%;"></div>
+                <div class="bar" style="height: 85%;"></div>
+                <div class="bar" style="height: 75%;"></div>
+                <div class="bar" style="height: 90%;"></div>
+                <div class="bar" style="height: 82%;"></div>
+                <div class="bar" style="height: 78%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
